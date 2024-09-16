@@ -22,13 +22,10 @@ function App() {
   const totalFeedback = currentResponse.good + currentResponse.neutral + currentResponse.bad;  
    
   const updateFeedback = feedbackType => {    
-     if (currentResponse) {
-       
-   
-    setResponse({
+       setResponse({
       ...currentResponse,
       [feedbackType]: currentResponse[feedbackType] + 1      
-    })  }
+    })  
   } 
   
   const resetFeedback = () => {
@@ -37,7 +34,7 @@ function App() {
 
  useEffect (() => {
    localStorage.setItem('response', JSON.stringify(currentResponse))
- })
+ }, [currentResponse])
   
   
   return (
